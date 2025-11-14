@@ -1,193 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sharmin Akter | Portfolio</title>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <style>
-    /* RESET */
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    html { scroll-behavior: smooth; }
-    body { background: #F5F7FA; color: #222; line-height:1.6; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sharmin Akter | Portfolio</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+      /* RESET */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: #f5f7fa;
+        color: #222;
+        line-height: 1.6;
+      }
 
-    /* HEADER */
-    header {
-      background: linear-gradient(135deg,#2C3E50,#4CA1AF);
-      color:#fff;
-      padding:60px 20px;
-      text-align:center;
-      overflow:hidden;
-    }
-    header img {
-      width:150px; height:150px; border-radius:50%; object-fit:cover;
-      margin-bottom:20px; border:3px solid #FF6B6B;
-      animation: zoomIn 1.2s ease forwards;
-    }
-    header h1 { font-size:38px; margin-bottom:10px; color:#FFD93D; opacity:0; animation: fadeUp 1s 0.3s forwards; }
-    header p { opacity:0; animation: fadeUp 1s 0.5s forwards; color:#F8F8F8; font-weight:500; }
+      /* HEADER */
+      header {
+        background: linear-gradient(135deg, #2c3e50, #4ca1af);
+        color: #fff;
+        padding: 60px 20px;
+        text-align: center;
+        overflow: hidden;
+      }
+      header img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border: 3px solid #ff6b6b;
+        animation: zoomIn 1.2s ease forwards;
+      }
+      header h1 {
+        font-size: 38px;
+        margin-bottom: 10px;
+        color: #ffd93d;
+        opacity: 0;
+        animation: fadeUp 1s 0.3s forwards;
+      }
+      header p {
+        opacity: 0;
+        animation: fadeUp 1s 0.5s forwards;
+        color: #f8f8f8;
+        font-weight: 500;
+      }
 
-    nav {
-      display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:25px;
-    }
-    nav a {
-      color:#fff; text-decoration:none; font-weight:bold; padding:10px 18px;
-      border:1px solid #fff; border-radius:8px; transition:0.3s;
-    }
-    nav a:hover { background:#FFD93D; color:#2C3E50; transform:scale(1.1); box-shadow:0 5px 15px rgba(255,217,61,0.4); }
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 25px;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 18px;
+        border: 1px solid #fff;
+        border-radius: 8px;
+        transition: 0.3s;
+      }
+      nav a:hover {
+        background: #ffd93d;
+        color: #2c3e50;
+        transform: scale(1.1);
+        box-shadow: 0 5px 15px rgba(255, 217, 61, 0.4);
+      }
 
-    /* SECTION BASE */
-    section {
-      padding:60px 10%;
-      border-radius:15px;
-      margin:40px auto;
-      max-width:1200px;
-      background: linear-gradient(145deg,#ffffff,#e0e7ef);
-      box-shadow:0 12px 25px rgba(0,0,0,0.08);
-      opacity:0; transform:translateY(40px);
-    }
-    h2 { color:#2C3E50; margin-bottom:30px; font-size:32px; text-align:center; letter-spacing:1px; }
+      /* SECTION BASE */
+      section {
+        padding: 60px 10%;
+        border-radius: 15px;
+        margin: 40px auto;
+        max-width: 1200px;
+        background: linear-gradient(145deg, #ffffff, #e0e7ef);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      h2 {
+        color: #2c3e50;
+        margin-bottom: 30px;
+        font-size: 32px;
+        text-align: center;
+        letter-spacing: 1px;
+      }
 
-    /* BOXES */
-    .box {
-      background: linear-gradient(145deg,#fefefe,#dbe3ec);
-      padding:25px; border-radius:15px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.08);
-      margin-bottom:30px;
-      transition: transform 0.4s, box-shadow 0.4s;
-    }
-    .box:hover { transform: translateY(-6px); box-shadow:0 15px 35px rgba(0,0,0,0.15); }
+      /* BOXES */
+      .box {
+        background: linear-gradient(145deg, #fefefe, #dbe3ec);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        margin-bottom: 30px;
+        transition: transform 0.4s, box-shadow 0.4s;
+      }
+      .box:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
 
-    ul { padding-left:25px; line-height:1.8; }
-    a.project-link { color:#4CA1AF; text-decoration:none; font-weight:600; transition:0.3s; }
-    a.project-link:hover { color:#FF6B6B; text-shadow:0 0 10px rgba(255,107,107,0.6); }
+      ul {
+        padding-left: 25px;
+        line-height: 1.8;
+      }
+      a.project-link {
+        color: #4ca1af;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+      a.project-link:hover {
+        color: #ff6b6b;
+        text-shadow: 0 0 10px rgba(255, 107, 107, 0.6);
+      }
 
-    /* GALLERY */
-    .gallery { display:flex; justify-content:center; gap:25px; flex-wrap:wrap; margin-top:25px; }
-    .gallery img { width:280px; height:200px; object-fit:cover; border-radius:15px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.1); transition: transform 0.4s, box-shadow 0.4s; }
-    .gallery img:hover { transform: scale(1.08); box-shadow:0 15px 35px rgba(0,0,0,0.25); }
+      /* GALLERY */
+      .gallery {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+        margin-top: 25px;
+      }
+      .gallery img {
+        width: 280px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s, box-shadow 0.4s;
+      }
+      .gallery img:hover {
+        transform: scale(1.08);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+      }
 
-    /* OBJECTIVE */
-    .objective-box {
-      background: linear-gradient(120deg,#FF6B6B,#FFD93D,#4CA1AF);
-      color:#fff; padding:25px; border-radius:15px; 
-      box-shadow:0 12px 30px rgba(0,0,0,0.12);
-      text-align:center; font-size:18px; font-weight:500; margin-bottom:35px;
-    }
+      /* OBJECTIVE */
+      .objective-box {
+        background: linear-gradient(120deg, #ff6b6b, #ffd93d, #4ca1af);
+        color: #fff;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        text-align: center;
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 35px;
+      }
 
-    /* FOOTER */
-    footer { text-align:center; padding:25px; background:#2C3E50; color:#F8F8F8; margin-top:50px; font-size:14px; border-radius:10px; }
+      /* FOOTER */
+      footer {
+        text-align: center;
+        padding: 25px;
+        background: #2c3e50;
+        color: #f8f8f8;
+        margin-top: 50px;
+        font-size: 14px;
+        border-radius: 10px;
+      }
 
-    /* RESPONSIVE */
-    @media(max-width:768px){
-      header img { width:130px; height:130px; }
-      .gallery img { width:100%; height:220px; }
-      section { padding:40px 5%; }
-    }
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        header img {
+          width: 130px;
+          height: 130px;
+        }
+        .gallery img {
+          width: 100%;
+          height: 220px;
+        }
+        section {
+          padding: 40px 5%;
+        }
+      }
 
-    /* ANIMATIONS */
-    @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
-    @keyframes zoomIn { from { transform:scale(0); opacity:0; } to { transform:scale(1); opacity:1; } }
-  </style>
-</head>
-<body>
+      /* ANIMATIONS */
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes zoomIn {
+        from {
+          transform: scale(0);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="2.jpeg" alt="Sharmin Akter" />
+      <h1>Sharmin Akter</h1>
+      <p>
+        Computer Science & Engineering Student | Event Manager | Volunteer
+        Leader
+      </p>
+      <nav>
+        <a href="#objective">Objective</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-<header>
-  <img src="2.jpeg" alt="Sharmin Akter" />
-  <h1>Sharmin Akter</h1>
-  <p>Computer Science & Engineering Student | Event Manager | Volunteer Leader</p>
-  <nav>
-    <a href="#objective">Objective</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+    <!-- OBJECTIVE -->
+    <section id="objective" data-aos="fade-up">
+      <h2>Objective</h2>
+      <div class="objective-box">
+        I am a motivated and proactive CSE student with strong programming,
+        database, and leadership experience. I enjoy technical project
+        development, event management, and organizing impactful social
+        campaigns.
+      </div>
+    </section>
 
-<!-- OBJECTIVE -->
-<section id="objective" data-aos="fade-up">
-  <h2>Objective</h2>
-  <div class="objective-box">
-    I am a motivated and proactive CSE student with strong programming, database, and leadership experience. I enjoy technical project development, event management, and organizing impactful social campaigns.
-  </div>
-</section>
+    <section id="about" data-aos="fade-up">
+      <h2>About Me</h2>
+      <div class="box">
+        <p><strong>Location:</strong> Chattogram, Bangladesh</p>
+        <p><strong>Email:</strong> sharminakter.pciu@gmail.com</p>
+        <p>
+          <strong>LinkedIn:</strong>
+          <a href="https://linkedin.com/in/sharminakter890" target="_blank"
+            >linkedin.com/in/sharminakter890</a
+          >
+        </p>
+        <p>
+          <strong>GitHub:</strong>
+          <a href="https://github.com/sharminakter-pciu" target="_blank"
+            >github.com/sharminakter-pciu</a
+          >
+        </p>
+      </div>
+      <div class="gallery">
+        <img src="2.jpeg" alt="Portfolio Photo 1" />
+        <img src="3.jpeg" alt="Portfolio Photo 2" />
+      </div>
+    </section>
 
-<section id="about" data-aos="fade-up">
-  <h2>About Me</h2>
-  <div class="box">
-    <p><strong>Location:</strong> Chattogram, Bangladesh</p>
-    <p><strong>Email:</strong> sharminakter.pciu@gmail.com</p>
-    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sharminakter890" target="_blank">linkedin.com/in/sharminakter890</a></p>
-    <p><strong>GitHub:</strong> <a href="https://github.com/sharminakter-pciu" target="_blank">github.com/sharminakter-pciu</a></p>
-  </div>
-  <div class="gallery">
-    <img src="2.jpeg" alt="Portfolio Photo 1" />
-    <img src="3.jpeg" alt="Portfolio Photo 2" />
-  </div>
-</section>
+    <section id="skills" data-aos="fade-up">
+      <h2>Skills</h2>
+      <div class="box">
+        <h3>Technical Skills</h3>
+        <ul>
+          <li>HTML, CSS, PHP</li>
+          <li>Python (Intermediate)</li>
+          <li>SQL Database</li>
+          <li>MS Word, Excel, PowerPoint (Advanced)</li>
+        </ul>
+        <h3>Other Skills</h3>
+        <ul>
+          <li>Event Planning</li>
+          <li>Fundraising</li>
+          <li>Team Coordination</li>
+        </ul>
+      </div>
+    </section>
 
-<section id="skills" data-aos="fade-up">
-  <h2>Skills</h2>
-  <div class="box">
-    <h3>Technical Skills</h3>
-    <ul>
-      <li>HTML, CSS, PHP</li>
-      <li>Python (Intermediate)</li>
-      <li>SQL Database</li>
-      <li>MS Word, Excel, PowerPoint (Advanced)</li>
-    </ul>
-    <h3>Other Skills</h3>
-    <ul>
-      <li>Event Planning</li>
-      <li>Fundraising</li>
-      <li>Team Coordination</li>
-    </ul>
-  </div>
-</section>
+    <section id="experience" data-aos="fade-up">
+      <h2>Experience & Leadership</h2>
+      <div class="box">
+        <ul>
+          <li>
+            <strong>Press Release Manager (CTG Division)</strong> – ICT Olympiad
+            Bangladesh Season 3
+          </li>
+          <li><strong>Co-Leader</strong> – PCIU Team, ICT Olympiad Season 3</li>
+          <li>
+            <strong>Women Representative</strong> – PCIU Volunteers Leader Panel
+            2025
+          </li>
+          <li>
+            <strong>Department Representative (CSE)</strong> – PCIU Volunteers
+            2024
+          </li>
+          <li><strong>HR Secretary</strong> – One Man Army Committee 2024</li>
+          <li><strong>HR Executive</strong> – PCIU Computer Club 2024</li>
+          <li>
+            <strong>Organizer</strong> – EduVate Fest, Annupurna 2.0 & 3.0,
+            Sharing Happiness 4.0 & 5.0, Orientation & Cultural Events
+          </li>
+        </ul>
+      </div>
+    </section>
 
-<section id="experience" data-aos="fade-up">
-  <h2>Experience & Leadership</h2>
-  <div class="box">
-    <ul>
-      <li><strong>Press Release Manager (CTG Division)</strong> – ICT Olympiad Bangladesh Season 3</li>
-      <li><strong>Co-Leader</strong> – PCIU Team, ICT Olympiad Season 3</li>
-      <li><strong>Women Representative</strong> – PCIU Volunteers Leader Panel 2025</li>
-      <li><strong>Department Representative (CSE)</strong> – PCIU Volunteers 2024</li>
-      <li><strong>HR Secretary</strong> – One Man Army Committee 2024</li>
-      <li><strong>HR Executive</strong> – PCIU Computer Club 2024</li>
-      <li><strong>Organizer</strong> – EduVate Fest, Annupurna 2.0 & 3.0, Sharing Happiness 4.0 & 5.0, Orientation & Cultural Events</li>
-    </ul>
-  </div>
-</section>
+    <section id="projects" data-aos="fade-up">
+      <h2>Projects</h2>
+      <div class="box">
+        <ul>
+          <li>
+            <a
+              class="project-link"
+              href="https://sharminakter-pciu.github.io/PCIU-RedDrop/"
+              target="_blank"
+              >PCIU RedDrop – Blood Donation Management System</a
+            >
+          </li>
+          <li>
+            <a
+              class="project-link"
+              href="https://sharminakter-pciu.github.io/PCIU-HuB/index.html"
+              target="_blank"
+              >PCIU HuB – Web Project</a
+            >
+          </li>
+          <li>
+            <a
+              class="project-link"
+              href="https://github.com/sharminakter-pciu"
+              target="_blank"
+              >More Projects – GitHub</a
+            >
+          </li>
+        </ul>
+      </div>
+    </section>
 
-<section id="projects" data-aos="fade-up">
-  <h2>Projects</h2>
-  <div class="box">
-    <ul>
-      <li><a class="project-link" href="https://sharminakter-pciu.github.io/PCIU-RedDrop/" target="_blank">PCIU RedDrop – Blood Donation Management System</a></li>
-      <li><a class="project-link" href="https://sharminakter-pciu.github.io/PCIU-HuB/index.html" target="_blank">PCIU HuB – Web Project</a></li>
-      <li><a class="project-link" href="https://github.com/sharminakter-pciu" target="_blank">More Projects – GitHub</a></li>
-    </ul>
-  </div>
-</section>
+    <section id="contact" data-aos="fade-up">
+      <h2>Contact</h2>
+      <div class="box">
+        <p><strong>Phone:</strong> 01518355086</p>
+        <p><strong>Email:</strong> sharminakter.pciu@gmail.com</p>
+        <p>
+          Feel free to reach out for collaborations, projects, or event
+          opportunities!
+        </p>
+      </div>
+    </section>
 
-<section id="contact" data-aos="fade-up">
-  <h2>Contact</h2>
-  <div class="box">
-    <p><strong>Phone:</strong> 01518355086</p>
-    <p><strong>Email:</strong> sharminakter.pciu@gmail.com</p>
-    <p>Feel free to reach out for collaborations, projects, or event opportunities!</p>
-  </div>
-</section>
+    <footer>© 2025 Sharmin Akter</footer>
 
-<footer>© 2025 Sharmin Akter</footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({ duration: 1000, once: true });
-</script>
-</body>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 1000, once: true });
+    </script>
+  </body>
 </html>
