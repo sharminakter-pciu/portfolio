@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sharmin Akter | Portfolio</title>
+
+    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
     <style>
       /* RESET */
       * {
@@ -56,7 +59,7 @@
       nav {
         display: flex;
         justify-content: center;
-        gap: 20px;
+        gap: 14px;
         flex-wrap: wrap;
         margin-top: 25px;
       }
@@ -64,15 +67,17 @@
         color: #fff;
         text-decoration: none;
         font-weight: bold;
-        padding: 10px 18px;
-        border: 1px solid #fff;
-        border-radius: 8px;
+        padding: 10px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
         transition: 0.3s;
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(6px);
       }
       nav a:hover {
         background: #ffd93d;
         color: #2c3e50;
-        transform: scale(1.1);
+        transform: scale(1.06);
         box-shadow: 0 5px 15px rgba(255, 217, 61, 0.4);
       }
 
@@ -124,11 +129,11 @@
         text-shadow: 0 0 10px rgba(255, 107, 107, 0.6);
       }
 
-      /* GALLERY */
+      /* GALLERY (general) */
       .gallery {
         display: flex;
         justify-content: center;
-        gap: 25px;
+        gap: 18px;
         flex-wrap: wrap;
         margin-top: 25px;
       }
@@ -139,9 +144,10 @@
         border-radius: 15px;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         transition: transform 0.4s, box-shadow 0.4s;
+        cursor: pointer;
       }
       .gallery img:hover {
-        transform: scale(1.08);
+        transform: scale(1.06);
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
       }
 
@@ -158,18 +164,150 @@
         margin-bottom: 35px;
       }
 
+      /* ABOUT DETAILS + GRID GALLERY */
+      .about-details p {
+        margin: 6px 0;
+      }
+      .about-details a {
+        color: #2c3e50;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .about-details a:hover {
+        text-decoration: underline;
+      }
+
+      .about-gallery {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .about-gallery img {
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+        border-radius: 14px;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+      .about-gallery img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+      }
+
+      /* LIGHTBOX */
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.78);
+        z-index: 9999;
+        padding: 18px;
+      }
+      .lightbox.is-open {
+        display: flex;
+      }
+      .lightbox-dialog {
+        width: min(980px, 96vw);
+        height: min(720px, 86vh);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .lightbox-img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 14px;
+        box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .lightbox-caption {
+        position: absolute;
+        left: 12px;
+        bottom: 10px;
+        right: 12px;
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 14px;
+        text-align: center;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+      }
+
+      .lb-btn {
+        position: absolute;
+        top: 10px;
+        width: 42px;
+        height: 42px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(6px);
+        transition: transform 0.2s, background 0.2s;
+      }
+      .lb-btn:hover {
+        transform: scale(1.05);
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .lb-close {
+        right: 10px;
+        font-size: 22px;
+        line-height: 42px;
+      }
+
+      .lb-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 46px;
+        height: 60px;
+        border: none;
+        border-radius: 14px;
+        cursor: pointer;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(6px);
+        transition: transform 0.2s, background 0.2s;
+        font-size: 22px;
+      }
+      .lb-nav:hover {
+        transform: translateY(-50%) scale(1.05);
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .lb-prev {
+        left: 10px;
+      }
+      .lb-next {
+        right: 10px;
+      }
+
       /* FOOTER */
       footer {
         text-align: center;
         padding: 25px;
         background: #2c3e50;
         color: #f8f8f8;
-        margin-top: 50px;
+        margin: 50px auto 20px;
         font-size: 14px;
         border-radius: 10px;
+        max-width: 1200px;
+        width: calc(100% - 30px);
       }
 
       /* RESPONSIVE */
+      @media (max-width: 900px) {
+        section {
+          padding: 50px 6%;
+        }
+        .about-gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
       @media (max-width: 768px) {
         header img {
           width: 130px;
@@ -179,8 +317,39 @@
           width: 100%;
           height: 200px;
         }
+        .about-gallery img {
+          height: 220px;
+        }
+        h2 {
+          font-size: 28px;
+        }
+        header h1 {
+          font-size: 34px;
+        }
+      }
+      @media (max-width: 560px) {
         section {
-          padding: 40px 5%;
+          padding: 42px 5%;
+        }
+        .about-gallery {
+          grid-template-columns: 1fr;
+        }
+        .about-gallery img {
+          height: 240px;
+        }
+        nav a {
+          width: 100%;
+          text-align: center;
+          max-width: 280px;
+        }
+        .lightbox-dialog {
+          width: 96vw;
+          height: 76vh;
+        }
+        .lb-prev,
+        .lb-next {
+          width: 42px;
+          height: 54px;
         }
       }
 
@@ -203,13 +372,13 @@
       }
     </style>
   </head>
+
   <body>
     <header>
       <img src="2.jpeg" alt="Sharmin Akter" />
       <h1>Sharmin Akter</h1>
-      <p>
-        CSE Student| Volunteer Leader | Social Activist
-      </p>
+      <p>CSE Student | Volunteer Leader | Social Activist</p>
+
       <nav>
         <a href="#objective">Objective</a>
         <a href="#about">About</a>
@@ -217,6 +386,7 @@
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#certificates">Certificates</a>
+        <a href="#cv">CV</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -225,31 +395,79 @@
     <section id="objective" data-aos="fade-up">
       <h2>Objective</h2>
       <div class="objective-box">
-I am a motivated and proactive Computer Science and Engineering (CSE) student with a strong foundation in programming, database systems, and technical problem-solving. I have hands-on experience in developing software projects and enjoy transforming ideas into practical, efficient solutions. Alongside my technical skills, I bring proven leadership and organizational abilities, having actively contributed to event management and the coordination of impactful social initiatives. I am passionate about continuous learning, teamwork, and creating technology-driven solutions that deliver real-world value.
+        To grow as a dedicated Computer Science and Engineering (CSE) professional
+        by combining my technical skills with my passion for social activism and
+        volunteer work. I aim to build impactful software solutions that address
+        real-world challenges and support community development. Through
+        continuous learning, teamwork, and leadership, I want to contribute to
+        meaningful projects where technology and social responsibility work
+        together to create positive change.
       </div>
     </section>
 
     <!-- ABOUT -->
     <section id="about" data-aos="fade-up">
       <h2>About Me</h2>
+
       <div class="box">
-        <p><strong>Location:</strong> Chattogram, Bangladesh</p>
-        <p><strong>Email:</strong> sharminakter.pciu@gmail.com</p>
         <p>
-          <strong>LinkedIn:</strong>
-          <a href="https://linkedin.com/in/sharminakter890" target="_blank"
-            >linkedin.com/in/sharminakter890</a
-          >
+          I am a passionate Computer Science and Engineering (CSE) student with a
+          strong interest in programming, database systems, and building practical
+          software solutions. I enjoy exploring new technologies, working on real
+          projects, and improving my skills through continuous learning.
         </p>
-        <p>
-          <strong>GitHub:</strong>
-          <a href="https://github.com/sharminakter-pciu" target="_blank"
-            >github.com/sharminakter-pciu</a
-          >
+
+        <p style="margin-top: 12px">
+          Beyond academics, I am actively involved in volunteering and social
+          activism. I have contributed to organizing events, managing awareness
+          campaigns, and supporting community-focused initiatives. These
+          experiences have strengthened my leadership, communication, teamwork,
+          and time-management abilities.
         </p>
-      </div>
-      <div class="gallery">
-        <img src="3.jpeg" alt="Portfolio Photo 2" />
+
+        <hr style="margin: 18px 0; border: none; height: 1px; background: rgba(0,0,0,0.12);" />
+
+        <div class="about-details">
+          <p><strong>📍 Location:</strong> Chattogram, Bangladesh</p>
+          <p>
+            <strong>📧 Email:</strong>
+            <a href="mailto:sharminakter.pciu@gmail.com">sharminakter.pciu@gmail.com</a>
+          </p>
+          <p>
+            <strong>💼 LinkedIn:</strong>
+            <a href="https://linkedin.com/in/sharminakter890" target="_blank">
+              linkedin.com/in/sharminakter890
+            </a>
+          </p>
+          <p>
+            <strong>💻 GitHub:</strong>
+            <a href="https://github.com/sharminakter-pciu" target="_blank">
+              github.com/sharminakter-pciu
+            </a>
+          </p>
+        </div>
+
+        <!-- About Images (Lightbox enabled) -->
+        <div class="about-gallery">
+          <img
+            src="jui1.jpeg"
+            alt="Volunteer Activity 1"
+            class="lightbox-trigger"
+            data-group="about"
+          />
+          <img
+            src="jui2.jpeg"
+            alt="Volunteer Activity 2"
+            class="lightbox-trigger"
+            data-group="about"
+          />
+          <img
+            src="jui3.jpeg"
+            alt="Volunteer Activity 3"
+            class="lightbox-trigger"
+            data-group="about"
+          />
+        </div>
       </div>
     </section>
 
@@ -264,7 +482,8 @@ I am a motivated and proactive Computer Science and Engineering (CSE) student wi
           <li>SQL Database</li>
           <li>MS Word, Excel, PowerPoint (Advanced)</li>
         </ul>
-        <h3>Other Skills</h3>
+
+        <h3 style="margin-top: 14px">Other Skills</h3>
         <ul>
           <li>Event Planning</li>
           <li>Fundraising</li>
@@ -323,10 +542,7 @@ I am a motivated and proactive Computer Science and Engineering (CSE) student wi
             >
           </li>
           <li>
-            <a
-              class="project-link"
-              href="https://github.com/sharminakter-pciu"
-              target="_blank"
+            <a class="project-link" href="https://github.com/sharminakter-pciu" target="_blank"
               >More Projects – GitHub</a
             >
           </li>
@@ -337,75 +553,181 @@ I am a motivated and proactive Computer Science and Engineering (CSE) student wi
     <!-- CERTIFICATES -->
     <section id="certificates" data-aos="fade-up">
       <h2>Volunteering and Leadership Certificates</h2>
+
+      <!-- Lightbox enabled: add class + data-group -->
       <div class="gallery">
-        <a href="cert1.jpeg" target="_blank"
-          ><img src="cert1.jpeg" alt="Certificate 1"
-        /></a>
-        <a href="cert2.jpeg" target="_blank"
-          ><img src="cert2.jpeg" alt="Certificate 2"
-        /></a>
-        <a href="cert3.jpeg" target="_blank"
-          ><img src="cert3.jpeg" alt="Certificate 3"
-        /></a>
-        <a href="cert4.jpeg" target="_blank"
-          ><img src="cert4.jpeg" alt="Certificate 4"
-        /></a>
-        <a href="cert5.jpeg" target="_blank"
-          ><img src="cert5.jpeg" alt="Certificate 5"
-        /></a>
-        <a href="cert6.jpeg" target="_blank"
-          ><img src="cert6.jpeg" alt="Certificate 6"
-        /></a>
-        <a href="cert7.jpeg" target="_blank"
-          ><img src="cert7.jpeg" alt="Certificate 7"
-        /></a>
-        <a href="cert8.jpeg" target="_blank"
-          ><img src="cert8.jpeg" alt="Certificate 8"
-        /></a>
-        <a href="cert9.jpeg" target="_blank"
-          ><img src="cert9.jpeg" alt="Certificate 9"
-        /></a>
-        <a href="cert10.jpeg" target="_blank"
-          ><img src="cert10.jpeg" alt="Certificate 10"
-        /></a>
-        <a href="cert11.jpeg" target="_blank"
-          ><img src="cert11.jpeg" alt="Certificate 11"
-        /></a>
+        <img src="cert1.jpeg" alt="Certificate 1" class="lightbox-trigger" data-group="certs" />
+        <img src="cert2.jpeg" alt="Certificate 2" class="lightbox-trigger" data-group="certs" />
+        <img src="cert3.jpeg" alt="Certificate 3" class="lightbox-trigger" data-group="certs" />
+        <img src="cert4.jpeg" alt="Certificate 4" class="lightbox-trigger" data-group="certs" />
+        <img src="cert5.jpeg" alt="Certificate 5" class="lightbox-trigger" data-group="certs" />
+        <img src="cert6.jpeg" alt="Certificate 6" class="lightbox-trigger" data-group="certs" />
+        <img src="cert7.jpeg" alt="Certificate 7" class="lightbox-trigger" data-group="certs" />
+        <img src="cert8.jpeg" alt="Certificate 8" class="lightbox-trigger" data-group="certs" />
+        <img src="cert9.jpeg" alt="Certificate 9" class="lightbox-trigger" data-group="certs" />
+        <img src="cert10.jpeg" alt="Certificate 10" class="lightbox-trigger" data-group="certs" />
+        <img src="cert11.jpeg" alt="Certificate 11" class="lightbox-trigger" data-group="certs" />
       </div>
     </section>
-    <!-- CV SECTION -->
-<section id="cv" data-aos="fade-up">
-  <h2>Curriculum Vitae</h2>
-  <div class="box" style="text-align: center;">
-    <p>Download my CV for detailed information about my experience and achievements.</p>
-    <a href="Sharmin_Akter_CV.pdf" target="_blank" style="
-        display: inline-block;
-        background: linear-gradient(135deg,#ff6b6b,#ffd93d,#4ca1af);
-        color: #fff;
-        padding: 12px 25px;
-        border-radius: 10px;
-        font-weight: bold;
-        text-decoration: none;
-        transition: 0.3s;
-    ">Download CV</a>
-  </div>
-</section>
 
+    <!-- CV SECTION -->
+    <section id="cv" data-aos="fade-up">
+      <h2>Curriculum Vitae</h2>
+      <div class="box" style="text-align: center">
+        <p>Download my CV for detailed information about my experience and achievements.</p>
+
+        <a
+          href="Sharmin_Akter_CV.pdf"
+          target="_blank"
+          style="
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d, #4ca1af);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+            margin-top: 12px;
+          "
+          >Download CV</a
+        >
+      </div>
+    </section>
 
     <!-- CONTACT -->
     <section id="contact" data-aos="fade-up">
       <h2>Contact</h2>
       <div class="box">
-        <p><strong>Email:</strong> sharminakter.pciu@gmail.com</p>
-        <p>For academic inquiries, kindly reach out to me directly!</p>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:sharminakter.pciu@gmail.com">sharminakter.pciu@gmail.com</a>
+        </p>
+        <p style="margin-top: 8px">For academic inquiries, kindly reach out to me directly!</p>
       </div>
     </section>
 
-    <footer>© 2025 Sharmin Akter</footer>
+    <footer>© 2026 Sharmin Akter</footer>
 
+    <!-- LIGHTBOX HTML -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <button class="lb-btn lb-close" id="lbClose" aria-label="Close">✕</button>
+        <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+        <img class="lightbox-img" id="lbImg" alt="" />
+        <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
+        <div class="lightbox-caption" id="lbCaption"></div>
+      </div>
+    </div>
+
+    <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
+      // AOS init
       AOS.init({ duration: 1000, once: true });
+
+      // LIGHTBOX (supports groups + next/prev + Esc + click outside)
+      const lightbox = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lbImg");
+      const lbCaption = document.getElementById("lbCaption");
+      const lbClose = document.getElementById("lbClose");
+      const lbPrev = document.getElementById("lbPrev");
+      const lbNext = document.getElementById("lbNext");
+
+      let currentGroup = "";
+      let groupItems = [];
+      let currentIndex = 0;
+
+      function openLightbox(group, index) {
+        currentGroup = group;
+        groupItems = Array.from(
+          document.querySelectorAll(`.lightbox-trigger[data-group="${group}"]`)
+        );
+        currentIndex = index;
+
+        const el = groupItems[currentIndex];
+        lbImg.src = el.getAttribute("src");
+        lbImg.alt = el.getAttribute("alt") || "Image";
+        lbCaption.textContent = el.getAttribute("alt") || "";
+
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden"; // lock scroll
+
+        updateNavButtons();
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = ""; // unlock scroll
+        lbImg.src = "";
+        lbCaption.textContent = "";
+      }
+
+      function updateNavButtons() {
+        const hasMany = groupItems.length > 1;
+        lbPrev.style.display = hasMany ? "block" : "none";
+        lbNext.style.display = hasMany ? "block" : "none";
+      }
+
+      function showIndex(newIndex) {
+        if (!groupItems.length) return;
+        if (newIndex < 0) newIndex = groupItems.length - 1;
+        if (newIndex >= groupItems.length) newIndex = 0;
+        currentIndex = newIndex;
+
+        const el = groupItems[currentIndex];
+        lbImg.src = el.getAttribute("src");
+        lbImg.alt = el.getAttribute("alt") || "Image";
+        lbCaption.textContent = el.getAttribute("alt") || "";
+      }
+
+      // Click on images
+      document.querySelectorAll(".lightbox-trigger").forEach((img) => {
+        img.addEventListener("click", () => {
+          const group = img.dataset.group || "default";
+          const items = Array.from(
+            document.querySelectorAll(`.lightbox-trigger[data-group="${group}"]`)
+          );
+          const index = items.indexOf(img);
+          openLightbox(group, index);
+        });
+      });
+
+      // Buttons
+      lbClose.addEventListener("click", closeLightbox);
+      lbPrev.addEventListener("click", () => showIndex(currentIndex - 1));
+      lbNext.addEventListener("click", () => showIndex(currentIndex + 1));
+
+      // Click outside image closes
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      // Keyboard support
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("is-open")) return;
+
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") showIndex(currentIndex - 1);
+        if (e.key === "ArrowRight") showIndex(currentIndex + 1);
+      });
+
+      // Basic touch swipe support (mobile)
+      let startX = 0;
+      lbImg.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+      });
+      lbImg.addEventListener("touchend", (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const diff = endX - startX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) showIndex(currentIndex - 1);
+          else showIndex(currentIndex + 1);
+        }
+      });
     </script>
   </body>
 </html>
