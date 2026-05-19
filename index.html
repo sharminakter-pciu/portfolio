@@ -5,55 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sharmin Akter | Portfolio</title>
 
-    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <style>
-      /* RESET */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
+
       html {
         scroll-behavior: smooth;
       }
+
       body {
-        background: #f5f7fa;
+        background: linear-gradient(180deg, #f4f7fb, #eef3f9);
         color: #222;
         line-height: 1.6;
       }
 
-      /* HEADER */
       header {
-        background: linear-gradient(135deg, #2c3e50, #4ca1af);
+        background: linear-gradient(135deg, #0f172a, #1e293b);
         color: #fff;
-        padding: 60px 20px;
+        padding: 72px 20px 56px;
         text-align: center;
         overflow: hidden;
+        position: relative;
       }
+
+      header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top right, rgba(255,255,255,0.08), transparent 28%);
+        pointer-events: none;
+      }
+
       header img {
-        width: 150px;
-        height: 150px;
+        width: 148px;
+        height: 148px;
         border-radius: 50%;
         object-fit: cover;
         margin-bottom: 20px;
-        border: 3px solid #ff6b6b;
+        border: 4px solid #ffffff;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
         animation: zoomIn 1.2s ease forwards;
       }
+
       header h1 {
-        font-size: 38px;
-        margin-bottom: 10px;
-        color: #ffd93d;
+        font-size: 42px;
+        margin-bottom: 12px;
+        color: #ffffff;
+        font-weight: 700;
+        letter-spacing: -0.5px;
         opacity: 0;
         animation: fadeUp 1s 0.3s forwards;
       }
-      header p {
+
+      .headline {
+        font-size: 18px;
+        font-weight: 600;
+        color: #cbd5e1;
+        margin-bottom: 10px;
         opacity: 0;
-        animation: fadeUp 1s 0.5s forwards;
-        color: #f8f8f8;
-        font-weight: 500;
+        animation: fadeUp 1s 0.45s forwards;
+      }
+
+      .subheadline {
+        opacity: 0;
+        animation: fadeUp 1s 0.6s forwards;
+        color: #e2e8f0;
+        font-weight: 400;
+        max-width: 720px;
+        margin: 0 auto;
+        font-size: 17px;
       }
 
       nav {
@@ -61,156 +87,176 @@
         justify-content: center;
         gap: 14px;
         flex-wrap: wrap;
-        margin-top: 25px;
-      }
-      nav a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-        padding: 10px 16px;
-        border: 1px solid rgba(255, 255, 255, 0.9);
-        border-radius: 10px;
-        transition: 0.3s;
-        background: rgba(255, 255, 255, 0.06);
-        backdrop-filter: blur(6px);
-      }
-      nav a:hover {
-        background: #ffd93d;
-        color: #2c3e50;
-        transform: scale(1.06);
-        box-shadow: 0 5px 15px rgba(255, 217, 61, 0.4);
+        margin-top: 28px;
       }
 
-      /* SECTION BASE */
+      nav a {
+        color: #e2e8f0;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 10px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 10px;
+        transition: 0.3s;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      nav a:hover {
+        background: rgba(255, 255, 255, 0.12);
+        color: #ffffff;
+        transform: translateY(-2px);
+      }
+
       section {
-        padding: 60px 10%;
-        border-radius: 15px;
-        margin: 40px auto;
-        max-width: 1200px;
-        background: linear-gradient(145deg, #ffffff, #e0e7ef);
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+        padding: 56px 8%;
+        border-radius: 18px;
+        margin: 28px auto;
+        max-width: 1100px;
+        background: #ffffff;
+        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
         opacity: 0;
         transform: translateY(40px);
       }
+
       h2 {
-        color: #2c3e50;
-        margin-bottom: 30px;
-        font-size: 32px;
+        color: #0f172a;
+        margin-bottom: 24px;
+        font-size: 30px;
         text-align: center;
-        letter-spacing: 1px;
+        letter-spacing: -0.3px;
       }
 
-      /* BOXES */
       .box {
-        background: linear-gradient(145deg, #fefefe, #dbe3ec);
-        padding: 25px;
-        border-radius: 15px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        margin-bottom: 30px;
-        transition: transform 0.4s, box-shadow 0.4s;
+        background: #f8fafc;
+        padding: 24px;
+        border-radius: 16px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+        margin-bottom: 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
       }
+
       .box:hover {
         transform: translateY(-6px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.14);
+      }
+
+      .objective-box {
+        background: #0f172a;
+        color: #ffffff;
+        padding: 28px;
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16);
+        text-align: center;
+        font-size: 18px;
+        font-weight: 400;
       }
 
       ul {
-        padding-left: 25px;
-        line-height: 1.8;
+        padding-left: 24px;
+        line-height: 1.9;
       }
-      a.project-link {
-        color: #4ca1af;
-        text-decoration: none;
-        font-weight: 600;
+
+      .about-details p {
+        margin: 8px 0;
+      }
+
+      .about-details a,
+      .project-link,
+      .toggle-btn {
+        border: none;
+        background: #0f172a;
+        color: #fff;
+        padding: 12px 22px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 15px;
         transition: 0.3s;
       }
-      a.project-link:hover {
-        color: #ff6b6b;
-        text-shadow: 0 0 10px rgba(255, 107, 107, 0.6);
-      }
 
-      /* GALLERY (general) */
-      .gallery {
-        display: flex;
-        justify-content: center;
-        gap: 18px;
-        flex-wrap: wrap;
-        margin-top: 25px;
-      }
-      .gallery img {
-        width: 280px;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 15px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        transition: transform 0.4s, box-shadow 0.4s;
-        cursor: pointer;
-      }
-      .gallery img:hover {
-        transform: scale(1.06);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-      }
-
-      /* OBJECTIVE */
-      .objective-box {
-        background: linear-gradient(120deg, #ff6b6b, #ffd93d, #4ca1af);
-        color: #fff;
-        padding: 25px;
-        border-radius: 15px;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-        text-align: center;
-        font-size: 18px;
-        font-weight: 500;
-        margin-bottom: 35px;
-      }
-
-      /* ABOUT DETAILS + GRID GALLERY */
-      .about-details p {
-        margin: 6px 0;
-      }
-      .about-details a {
-        color: #2c3e50;
-        font-weight: 600;
-        text-decoration: none;
-      }
+      .project-link:hover,
       .about-details a:hover {
-        text-decoration: underline;
+        color: #ff6b6b;
       }
 
-      .about-gallery {
+      .toggle-wrap {
+        text-align: center;
         margin-top: 20px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
       }
+
+      .toggle-btn {
+        border: none;
+        background: linear-gradient(135deg, #1f2f46, #4ca1af);
+        color: #fff;
+        padding: 12px 22px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 15px;
+        transition: 0.3s;
+      }
+
+      .toggle-btn:hover {
+        transform: translateY(-2px);
+        background: #1e293b;
+        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.15);
+      }
+
+      .hidden-gallery {
+        display: none;
+        margin-top: 20px;
+      }
+
+      .hidden-gallery.show {
+        display: block;
+        animation: fadeIn 0.5s ease;
+      }
+
+      .gallery,
+      .about-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        margin-top: 16px;
+      }
+
+      .gallery img,
       .about-gallery img {
         width: 100%;
-        height: 230px;
+        height: 220px;
         object-fit: cover;
         border-radius: 14px;
-        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transition: transform 0.35s, box-shadow 0.35s;
         cursor: pointer;
       }
+
+      .gallery img:hover,
       .about-gallery img:hover {
         transform: scale(1.03);
-        box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
       }
 
-      /* LIGHTBOX */
+      .certificate-note {
+        text-align: center;
+        margin-bottom: 8px;
+        color: #475569;
+      }
+
       .lightbox {
         position: fixed;
         inset: 0;
         display: none;
         align-items: center;
         justify-content: center;
-        background: rgba(0, 0, 0, 0.78);
+        background: rgba(0, 0, 0, 0.82);
         z-index: 9999;
         padding: 18px;
       }
+
       .lightbox.is-open {
         display: flex;
       }
+
       .lightbox-dialog {
         width: min(980px, 96vw);
         height: min(720px, 86vh);
@@ -219,13 +265,14 @@
         align-items: center;
         justify-content: center;
       }
+
       .lightbox-img {
         max-width: 100%;
         max-height: 100%;
         border-radius: 14px;
         box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
-        background: rgba(255, 255, 255, 0.06);
       }
+
       .lightbox-caption {
         position: absolute;
         left: 12px;
@@ -234,141 +281,94 @@
         color: rgba(255, 255, 255, 0.95);
         font-size: 14px;
         text-align: center;
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+      }
+
+      .lb-btn,
+      .lb-nav {
+        position: absolute;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.13);
+        backdrop-filter: blur(6px);
+        transition: 0.2s;
       }
 
       .lb-btn {
-        position: absolute;
         top: 10px;
+        right: 10px;
         width: 42px;
         height: 42px;
-        border: none;
         border-radius: 12px;
-        cursor: pointer;
-        color: #fff;
-        background: rgba(255, 255, 255, 0.12);
-        backdrop-filter: blur(6px);
-        transition: transform 0.2s, background 0.2s;
-      }
-      .lb-btn:hover {
-        transform: scale(1.05);
-        background: rgba(255, 255, 255, 0.2);
-      }
-      .lb-close {
-        right: 10px;
         font-size: 22px;
-        line-height: 42px;
       }
 
       .lb-nav {
-        position: absolute;
         top: 50%;
         transform: translateY(-50%);
         width: 46px;
         height: 60px;
-        border: none;
         border-radius: 14px;
-        cursor: pointer;
-        color: #fff;
-        background: rgba(255, 255, 255, 0.12);
-        backdrop-filter: blur(6px);
-        transition: transform 0.2s, background 0.2s;
         font-size: 22px;
       }
+
+      .lb-prev { left: 10px; }
+      .lb-next { right: 10px; }
+
+      .lb-btn:hover,
       .lb-nav:hover {
-        transform: translateY(-50%) scale(1.05);
-        background: rgba(255, 255, 255, 0.2);
-      }
-      .lb-prev {
-        left: 10px;
-      }
-      .lb-next {
-        right: 10px;
+        transform: translateY(-50%) scale(1.04);
+        background: rgba(255, 255, 255, 0.24);
       }
 
-      /* FOOTER */
+      .lb-btn:hover {
+        transform: scale(1.04);
+      }
+
+      .cv-btn {
+        display: inline-block;
+        background: #0f172a;
+        color: #fff;
+        padding: 12px 25px;
+        border-radius: 10px;
+        font-weight: 600;
+        text-decoration: none;
+        margin-top: 12px;
+      }
+
       footer {
         text-align: center;
-        padding: 25px;
-        background: #2c3e50;
-        color: #f8f8f8;
-        margin: 50px auto 20px;
+        padding: 22px;
+        background: #0f172a;
+        color: #cbd5e1;
+        margin: 42px auto 20px;
         font-size: 14px;
-        border-radius: 10px;
-        max-width: 1200px;
+        border-radius: 12px;
+        max-width: 1100px;
         width: calc(100% - 30px);
       }
 
-      /* RESPONSIVE */
-      @media (max-width: 900px) {
-        section {
-          padding: 50px 6%;
-        }
-        .about-gallery {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
       @media (max-width: 768px) {
-        header img {
-          width: 130px;
-          height: 130px;
-        }
-        .gallery img {
-          width: 100%;
-          height: 200px;
-        }
-        .about-gallery img {
-          height: 220px;
-        }
-        h2 {
-          font-size: 28px;
-        }
-        header h1 {
-          font-size: 34px;
-        }
-      }
-      @media (max-width: 560px) {
-        section {
-          padding: 42px 5%;
-        }
-        .about-gallery {
-          grid-template-columns: 1fr;
-        }
-        .about-gallery img {
-          height: 240px;
-        }
-        nav a {
-          width: 100%;
-          text-align: center;
-          max-width: 280px;
-        }
-        .lightbox-dialog {
-          width: 96vw;
-          height: 76vh;
-        }
-        .lb-prev,
-        .lb-next {
-          width: 42px;
-          height: 54px;
-        }
+        section { padding: 46px 6%; }
+        header h1 { font-size: 34px; }
+        .headline { font-size: 16px; }
+        .gallery img,
+        .about-gallery img { height: 210px; }
       }
 
-      /* ANIMATIONS */
       @keyframes fadeUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(24px); }
+        to { opacity: 1; transform: translateY(0); }
       }
+
       @keyframes zoomIn {
-        from {
-          transform: scale(0);
-          opacity: 0;
-        }
-        to {
-          transform: scale(1);
-          opacity: 1;
-        }
+        from { transform: scale(0); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
     </style>
   </head>
@@ -377,7 +377,10 @@
     <header>
       <img src="2.jpeg" alt="Sharmin Akter" />
       <h1>Sharmin Akter</h1>
-      <p>CSE Student | Leader PCIU Volunteers Committee 2026 | Social Activist</p>
+      <p class="headline">President, PCIU Volunteers Committee 2026</p>
+      <p class="subheadline">
+        Computer Science and Engineering student with experience in volunteer leadership, event coordination, and community-focused initiatives.
+      </p>
 
       <nav>
         <a href="#objective">Objective</a>
@@ -391,171 +394,107 @@
       </nav>
     </header>
 
-    <!-- OBJECTIVE -->
     <section id="objective" data-aos="fade-up">
       <h2>Objective</h2>
       <div class="objective-box">
-        To grow as a dedicated Computer Science and Engineering (CSE) professional
-        by combining my technical skills with my passion for social activism and
-        volunteer work. I aim to build impactful software solutions that address
-        real-world challenges and support community development. Through
-        continuous learning, teamwork, and leadership, I want to contribute to
-        meaningful projects where technology and social responsibility work
-        together to create positive change.
+        To grow as a dedicated Computer Science and Engineering professional by combining technical expertise,
+        leadership, and volunteer service. I aim to build meaningful solutions that solve real-life problems,
+        inspire positive social change, and support community development through technology.
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about" data-aos="fade-up">
-      <h2>About Me</h2>
-
+      <h2>About</h2>
       <div class="box">
         <p>
-          I am a passionate Computer Science and Engineering (CSE) student with a
-          strong interest in programming, database systems, and building practical
-          software solutions. I enjoy exploring new technologies, working on real
-          projects, and improving my skills through continuous learning.
+          I am a passionate CSE student with strong interest in programming, databases, web development,
+          and creating practical digital solutions. I enjoy learning new tools, solving problems, and turning
+          ideas into useful projects.
         </p>
 
         <p style="margin-top: 12px">
-          Beyond academics, I am actively involved in volunteering and social
-          activism. I have contributed to organizing events, managing awareness
-          campaigns, and supporting community-focused initiatives. These
-          experiences have strengthened my leadership, communication, teamwork,
-          and time-management abilities.
+          Alongside academics, I am deeply involved in volunteer work, youth leadership, and social activism.
+          These experiences have helped me build confidence in communication, event management, teamwork,
+          and responsible leadership.
         </p>
 
         <hr style="margin: 18px 0; border: none; height: 1px; background: rgba(0,0,0,0.12);" />
 
         <div class="about-details">
           <p><strong>📍 Location:</strong> Chattogram, Bangladesh</p>
-          <p>
-            <strong>📧 Email:</strong>
-            <a href="mailto:sharminakter.pciu@gmail.com">sharminakter.pciu@gmail.com</a>
-          </p>
-          <p>
-            <strong>💼 LinkedIn:</strong>
-            <a href="https://linkedin.com/in/sharminakter890" target="_blank">
-              linkedin.com/in/sharminakter890
-            </a>
-          </p>
-          <p>
-            <strong>💻 GitHub:</strong>
-            <a href="https://github.com/sharminakter-pciu" target="_blank">
-              github.com/sharminakter-pciu
-            </a>
-          </p>
+          <p><strong>📧 Email:</strong> <a href="mailto:sharminakter.pciu@gmail.com">sharminakter.pciu@gmail.com</a></p>
+          <p><strong>💼 LinkedIn:</strong> <a href="https://linkedin.com/in/sharminakter890" target="_blank">linkedin.com/in/sharminakter890</a></p>
+          <p><strong>💻 GitHub:</strong> <a href="https://github.com/sharminakter-pciu" target="_blank">github.com/sharminakter-pciu</a></p>
         </div>
 
-        <!-- About Images (Lightbox enabled) -->
-        <div class="about-gallery">
-          <img
-            src="jui1.jpeg"
-          
-            class="lightbox-trigger"
-            data-group="about"
-          />
-          <img
-            src="jui2.jpeg"
+        
 
-            class="lightbox-trigger"
-            data-group="about"
-          />
-          <img
-            src="jui3.jpeg"
-
-            class="lightbox-trigger"
-            data-group="about"
-          />
-        </div>
+        
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section id="skills" data-aos="fade-up">
       <h2>Skills</h2>
       <div class="box">
         <h3>Technical Skills</h3>
         <ul>
-          <li>HTML, CSS, JS, PHP</li>
+          <li>HTML, CSS, JavaScript, PHP</li>
           <li>Python (Intermediate)</li>
-          <li>SQL Database</li>
+          <li>SQL Database Management</li>
           <li>MS Word, Excel, PowerPoint (Advanced)</li>
         </ul>
 
-        <h3 style="margin-top: 14px">Other Skills</h3>
+        <h3 style="margin-top: 14px">Leadership & Professional Skills</h3>
         <ul>
-          <li>Event Planning</li>
-          <li>Fundraising</li>
-          <li>Team Coordination</li>
+          <li>Event Planning and Coordination</li>
+          <li>Public Communication</li>
+          <li>Fundraising and Team Management</li>
+          <li>Volunteer Leadership</li>
         </ul>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
     <section id="experience" data-aos="fade-up">
-      <h2>Experience & Leadership</h2>
+      <h2>Leadership Experience</h2>
       <div class="box">
         <ul>
-          <li>
-            <strong>Press Release Manager (CTG Division)</strong> – ICT Olympiad
-            Bangladesh Season 3
-          </li>
+          <li><strong>President</strong> – PCIU Volunteers Committee</li>
+          <li><strong>Press Release Manager (CTG Division)</strong> – ICT Olympiad Bangladesh Season 3</li>
           <li><strong>Co-Leader</strong> – PCIU Team, ICT Olympiad Season 3</li>
-          <li>
-            <strong>Women Representative</strong> – PCIU Volunteers Leader Panel
-            2025
-          </li>
-          <li>
-            <strong>Department Representative (CSE)</strong> – PCIU Volunteers
-            2024
-          </li>
+          <li><strong>Women Representative</strong> – PCIU Volunteers Leader Panel 2025</li>
+          <li><strong>Department Representative (CSE)</strong> – PCIU Volunteers 2024</li>
           <li><strong>HR Secretary</strong> – One Man Army Committee 2024</li>
           <li><strong>HR Executive</strong> – PCIU Computer Club 2024</li>
-          <li>
-            <strong>Organizer</strong> – EduVate Fest, Annupurna 2.0 & 3.0,
-            Sharing Happiness 4.0 & 5.0, Orientation & Cultural Events
-          </li>
+          <li><strong>Organizer</strong> – EduVate Fest, Annupurna 2.0 & 3.0, Sharing Happiness 4.0 & 5.0, Orientation & Cultural Events</li>
         </ul>
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section id="projects" data-aos="fade-up">
       <h2>Projects</h2>
       <div class="box">
         <ul>
-          <li>
-            <a
-              class="project-link"
-              href="https://sharminakter-pciu.github.io/PCIU-RedDrop/"
-              target="_blank"
-              >PCIU RedDrop – Blood Donation Management System</a
-            >
-          </li>
-          <li>
-            <a
-              class="project-link"
-              href="https://sharminakter-pciu.github.io/PCIU-HuB/index.html"
-              target="_blank"
-              >PCIU HuB – Web Project</a
-            >
-          </li>
-          <li>
-            <a class="project-link" href="https://github.com/sharminakter-pciu" target="_blank"
-              >More Projects – GitHub</a
-            >
-          </li>
+          <li><a class="project-link" href="https://sharminakter-pciu.github.io/PCIU-RedDrop/" target="_blank">PCIU RedDrop – Blood Donation Management System</a></li>
+          <li><a class="project-link" href="https://sharminakter-pciu.github.io/PCIU-HuB/index.html" target="_blank">PCIU HuB – Web Project</a></li>
+          <li><a class="project-link" href="https://github.com/sharminakter-pciu" target="_blank">More Projects – GitHub</a></li>
         </ul>
       </div>
     </section>
 
-    <!-- CERTIFICATES -->
     <section id="certificates" data-aos="fade-up">
-      <h2>Volunteering and Leadership Certificates</h2>
+      <h2>Certificates</h2>
+      <p class="certificate-note">Selected volunteering and leadership certificates are available below.</p>
 
-      <!-- Lightbox enabled: add class + data-group -->
-      <div class="gallery">
+      <div class="toggle-wrap">
+        <button class="toggle-btn" onclick="toggleGallery('certificateGallery', this)">Show Certificates</button>
+      </div>
+
+      <div class="gallery hidden-gallery" id="certificateGallery">
+  
+  <a href="certificate (1).pdf" target="_blank" class="cert-card">Certificate 1</a>
+  <a href="certificate (2).pdf" target="_blank" class="cert-card">Certificate 2</a>
+  <a href="certificate (3).pdf" target="_blank" class="cert-card">Certificate 3</a>
+  <a href="certificate.pdf" target="_blank" class="cert-card">Certificate 4</a>
         <img src="cert1.jpeg" alt="Certificate 1" class="lightbox-trigger" data-group="certs" />
         <img src="cert2.jpeg" alt="Certificate 2" class="lightbox-trigger" data-group="certs" />
         <img src="cert3.jpeg" alt="Certificate 3" class="lightbox-trigger" data-group="certs" />
@@ -570,49 +509,27 @@
       </div>
     </section>
 
-    <!-- CV SECTION -->
     <section id="cv" data-aos="fade-up">
       <h2>Curriculum Vitae</h2>
       <div class="box" style="text-align: center">
-        <p>Download my CV for detailed information about my experience and achievements.</p>
-
-        <a
-          href="Sharmin_Akter_CV.pdf"
-          target="_blank"
-          style="
-            display: inline-block;
-            background: linear-gradient(135deg, #ff6b6b, #ffd93d, #4ca1af);
-            color: #fff;
-            padding: 12px 25px;
-            border-radius: 10px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: 0.3s;
-            margin-top: 12px;
-          "
-          >Download CV</a
-        >
+        <p>Download my CV for a complete overview of my education, leadership experience, technical skills, and achievements.</p>
+        <a href="SharminCV.pdf" target="_blank" class="cv-btn">Download CV</a>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" data-aos="fade-up">
       <h2>Contact</h2>
       <div class="box">
-        <p>
-          <strong>Email:</strong>
-          <a href="mailto:sharminakter.pciu@gmail.com">sharminakter.pciu@gmail.com</a>
-        </p>
-        <p style="margin-top: 8px">For academic inquiries, kindly reach out to me directly!</p>
+        <p><strong>Email:</strong> <a href="mailto:sharminakter.pciu@gmail.com">sharminakter.pciu@gmail.com</a></p>
+        <p style="margin-top: 8px">For academic, volunteering, leadership, or collaboration opportunities, please feel free to get in touch.</p>
       </div>
     </section>
 
-    <footer>© 2026 Sharmin Akter</footer>
+    <footer>© 2026 Sharmin Akter | Portfolio</footer>
 
-    <!-- LIGHTBOX HTML -->
     <div class="lightbox" id="lightbox" aria-hidden="true">
       <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Image viewer">
-        <button class="lb-btn lb-close" id="lbClose" aria-label="Close">✕</button>
+        <button class="lb-btn" id="lbClose" aria-label="Close">✕</button>
         <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
         <img class="lightbox-img" id="lbImg" alt="" />
         <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
@@ -620,14 +537,16 @@
       </div>
     </div>
 
-    <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
     <script>
-      // AOS init
       AOS.init({ duration: 1000, once: true });
 
-      // LIGHTBOX (supports groups + next/prev + Esc + click outside)
+      function toggleGallery(id, button) {
+        const gallery = document.getElementById(id);
+        gallery.classList.toggle('show');
+        button.textContent = gallery.classList.contains('show') ? 'Hide Gallery' : (id === 'certificateGallery' ? 'Show Certificates' : 'Show Photo Gallery');
+      }
+
       const lightbox = document.getElementById("lightbox");
       const lbImg = document.getElementById("lbImg");
       const lbCaption = document.getElementById("lbCaption");
@@ -635,41 +554,24 @@
       const lbPrev = document.getElementById("lbPrev");
       const lbNext = document.getElementById("lbNext");
 
-      let currentGroup = "";
       let groupItems = [];
       let currentIndex = 0;
 
       function openLightbox(group, index) {
-        currentGroup = group;
-        groupItems = Array.from(
-          document.querySelectorAll(`.lightbox-trigger[data-group="${group}"]`)
-        );
+        groupItems = Array.from(document.querySelectorAll(`.lightbox-trigger[data-group="${group}"]`));
         currentIndex = index;
-
-        const el = groupItems[currentIndex];
-        lbImg.src = el.getAttribute("src");
-        lbImg.alt = el.getAttribute("alt") || "Image";
-        lbCaption.textContent = el.getAttribute("alt") || "";
-
+        showIndex(currentIndex);
         lightbox.classList.add("is-open");
         lightbox.setAttribute("aria-hidden", "false");
-        document.body.style.overflow = "hidden"; // lock scroll
-
-        updateNavButtons();
+        document.body.style.overflow = "hidden";
       }
 
       function closeLightbox() {
         lightbox.classList.remove("is-open");
         lightbox.setAttribute("aria-hidden", "true");
-        document.body.style.overflow = ""; // unlock scroll
+        document.body.style.overflow = "";
         lbImg.src = "";
         lbCaption.textContent = "";
-      }
-
-      function updateNavButtons() {
-        const hasMany = groupItems.length > 1;
-        lbPrev.style.display = hasMany ? "block" : "none";
-        lbNext.style.display = hasMany ? "block" : "none";
       }
 
       function showIndex(newIndex) {
@@ -684,49 +586,28 @@
         lbCaption.textContent = el.getAttribute("alt") || "";
       }
 
-      // Click on images
       document.querySelectorAll(".lightbox-trigger").forEach((img) => {
         img.addEventListener("click", () => {
           const group = img.dataset.group || "default";
-          const items = Array.from(
-            document.querySelectorAll(`.lightbox-trigger[data-group="${group}"]`)
-          );
+          const items = Array.from(document.querySelectorAll(`.lightbox-trigger[data-group="${group}"]`));
           const index = items.indexOf(img);
           openLightbox(group, index);
         });
       });
 
-      // Buttons
       lbClose.addEventListener("click", closeLightbox);
       lbPrev.addEventListener("click", () => showIndex(currentIndex - 1));
       lbNext.addEventListener("click", () => showIndex(currentIndex + 1));
 
-      // Click outside image closes
       lightbox.addEventListener("click", (e) => {
         if (e.target === lightbox) closeLightbox();
       });
 
-      // Keyboard support
       document.addEventListener("keydown", (e) => {
         if (!lightbox.classList.contains("is-open")) return;
-
         if (e.key === "Escape") closeLightbox();
         if (e.key === "ArrowLeft") showIndex(currentIndex - 1);
         if (e.key === "ArrowRight") showIndex(currentIndex + 1);
-      });
-
-      // Basic touch swipe support (mobile)
-      let startX = 0;
-      lbImg.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
-      });
-      lbImg.addEventListener("touchend", (e) => {
-        const endX = e.changedTouches[0].clientX;
-        const diff = endX - startX;
-        if (Math.abs(diff) > 40) {
-          if (diff > 0) showIndex(currentIndex - 1);
-          else showIndex(currentIndex + 1);
-        }
       });
     </script>
   </body>
